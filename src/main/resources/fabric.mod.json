@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "taffeta-api",
+  "version": "${version}",
+
+  "name": "Taffeta API",
+  "description": "\"bast fibre api\"",
+  "authors": [
+    "T̓̈́h̋̆͝e̍҉̳̝ ͭͮFa̶̓͋b͐͂͒r̋̇̏ǐ̸͍c̿̐̔ ̧͑ͥPͫ̀̈ṙͭ́o͉ͩ͟ǰ̴̊e̿ͫ̉c̛̥̈́t̷̋̌"
+  ],
+  "contact": {
+    "homepage": "https://github.com/TheCursedFabricProject/taffeta-api",
+    "sources": "https://github.com/TheCursedFabricProject/taffeta-api"
+  },
+
+  "license": "BSD-3-Clause",
+  "icon": "assets/taffeta-api/logo.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.thecursedfabricproject.taffeta.Taffeta"
+    ]
+  },
+  "mixins": [
+    "taffeta.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}
