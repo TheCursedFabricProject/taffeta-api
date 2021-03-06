@@ -22,12 +22,12 @@ import net.fabricmc.loader.api.FabricLoader;
 public final class TaffetaConfig {
     private TaffetaConfig() { }
 
-    private static final HashMap<String, Config> CONFIGS = new HashMap<>();
+    private static final HashMap<String, ModConfig> CONFIGS = new HashMap<>();
 
     @SuppressWarnings("unchecked")
-    public static <T extends Config> T getConfig(Class<T> clazz, String modid) {
+    public static <T extends ModConfig> T getConfig(Class<T> clazz, String modid) {
         return (T) CONFIGS.computeIfAbsent(modid, id -> {
-            Config config = CoolConfig.create(clazz);
+            ModConfig config = CoolConfig.create(clazz);
             Path path = getConfigPath(modid);
             if (Files.exists(path)) {
                 tryLoadConfig(path, config, modid);
