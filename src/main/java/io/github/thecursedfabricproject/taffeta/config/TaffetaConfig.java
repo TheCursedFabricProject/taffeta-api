@@ -23,6 +23,7 @@ public final class TaffetaConfig {
     private TaffetaConfig() { }
 
     private static final HashMap<String, ModConfig> CONFIGS = new HashMap<>();
+    static final HashMap<ModConfig, String> MODID_LOOKUP = new HashMap<>();
 
     @SuppressWarnings("unchecked")
     public static <T extends ModConfig> T getConfig(Class<T> clazz, String modid) {
@@ -34,11 +35,12 @@ public final class TaffetaConfig {
             } else {
                 trySaveConfig(path, config, modid);
             }
+            MODID_LOOKUP.put(config, modid);
             return config;
         });
     }
 
-    private static Path getConfigPath(String modid) {
+    static Path getConfigPath(String modid) {
         return FabricLoader.getInstance().getConfigDir().resolve(modid + ".nt");
     }
 
@@ -61,7 +63,7 @@ public final class TaffetaConfig {
         return true;
     }
 
-    private static boolean trySaveConfig(Path path, Config config, String modid) {
+    static boolean trySaveConfig(Path path, Config config, String modid) {
         try {
             Path tmpFile = Files.createTempFile(path.getParent(), modid, ".nt");
             NestedTextNode node = CoolConfigNt.save(config);

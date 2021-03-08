@@ -9,6 +9,6 @@ import io.github.thecursedfabricproject.taffeta.test.config.ConfigTestMod.TestCo
 public class ModMenuThing implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> TaffetaConfig.getConfig(TestConfig.class, "taffeta-test").getScreen();
+        return parent -> TaffetaConfig.getConfig(TestConfig.class, "taffeta-test").getScreen(parent);
     }
 }
