@@ -54,7 +54,7 @@ dependencies {
 
     implementation "io.github.coolmineman:coolconfig:${project.coolconfig_version}"
 
-    modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
+    // modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
 
     afterEvaluate {
         testmodImplementation sourceSets.main.output
